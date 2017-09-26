@@ -1,6 +1,7 @@
 import java.util.List;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.TelegramBotAdapter;
+import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.ChatAction;
 import com.pengrad.telegrambot.request.GetUpdates;
@@ -26,7 +27,7 @@ public class Bot {
 	// objeto respons�vel por gerenciar o envio de a��es do chat
 	BaseResponse baseResponse;
 
-	public void run() {
+	public void run() throws Exception {
 		// controle de off-set, isto �, a partir deste ID ser� lido as mensagens
 		// pendentes na fila
 		int m = 0;
@@ -51,11 +52,20 @@ public class Bot {
 
 				// envio de "Escrevendo" antes de enviar a resposta
 				baseResponse = bot.execute(new SendChatAction(update.message().chat().id(), ChatAction.typing.name()));
+				
+				String q = update.message().text();
+				
+				HttpURLConnectionExample http = new HttpURLConnectionExample();
+				
+				
+				
+				
+				
 				// verifica��o de a��o de chat foi enviada com sucesso
 				System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
 
 				// envio da mensagem de resposta
-				sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Não entendi..."));
+				sendResponse = bot.execute(new SendMessage(update.message().chat().id(), http.sendGet(q).toString()));
 
 				// verifica��o de mensagem enviada com sucesso
 				System.out.println("Mensagem Enviada?" + sendResponse.isOk());
