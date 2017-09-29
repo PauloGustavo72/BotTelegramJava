@@ -1,6 +1,8 @@
 import java.util.List;
+
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.TelegramBotAdapter;
+import com.pengrad.telegrambot.model.Location;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.ChatAction;
@@ -18,7 +20,7 @@ import com.pengrad.telegrambot.response.SendResponse;
 public class Bot {
 
 	// Cria��o do objeto bot com as informa��es de acesso
-	TelegramBot bot = TelegramBotAdapter.build("387449681:AAHRdmGdvGLdODazBbzA3h5VkVzuy-QhxQI");
+	TelegramBot bot = TelegramBotAdapter.build("405842271:AAENVgesOMpf_ExICWGe3WKwTt1qT2nrMJs");
 
 	// objeto respons�vel por receber as mensagens
 	GetUpdatesResponse updatesResponse;
@@ -52,26 +54,31 @@ public class Bot {
 
 				// envio de "Escrevendo" antes de enviar a resposta
 				baseResponse = bot.execute(new SendChatAction(update.message().chat().id(), ChatAction.typing.name()));
-				
+
 				String q = update.message().text();
-				
-				HttpURLConnectionExample http = new HttpURLConnectionExample();
-				
-				
-				
-				
-				
-				// verifica��o de a��o de chat foi enviada com sucesso
-				System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
+				if (q.equals("/start")) {
+					sendResponse = bot.execute(
+							new SendMessage(update.message().chat().id(), "Digite o nome que deseja pesquisar."));
+				} else {
 
-				// envio da mensagem de resposta
-				sendResponse = bot.execute(new SendMessage(update.message().chat().id(), http.sendGet(q).toString()));
+					HttpURLConnectionExample http = new HttpURLConnectionExample();
 
-				// verifica��o de mensagem enviada com sucesso
-				System.out.println("Mensagem Enviada?" + sendResponse.isOk());
+					// verifica��o de a��o de chat foi enviada com sucesso
+					System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
+					
+					
+					
+					
+					System.out.println(update.message().venue());
+					
+					// envio da mensagem de resposta
+					sendResponse = bot
+							.execute(new SendMessage(update.message().chat().id(), http.sendGet(q).toString()));
 
+					// verifica��o de mensagem enviada com sucesso
+					System.out.println("Mensagem Enviada?" + sendResponse.isOk());
+				}
 			}
-
 		}
 
 	}

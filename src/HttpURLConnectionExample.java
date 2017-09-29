@@ -17,7 +17,7 @@ public  class HttpURLConnectionExample {
 		
 		String field = "&fields=items(title,link)";
 		String url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBqBB6y9iLfdRW4Re1XBEtR2RM6l2j329E&cx=009765904947196158732:qtjje0lqrya&q=" + 
-		q + field;
+		q.replace(" " , "%20") + field;
 		Gson gson = new Gson();
 
 		URL obj = new URL(url);
