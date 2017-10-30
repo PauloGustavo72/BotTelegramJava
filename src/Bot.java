@@ -32,7 +32,7 @@ public class Bot {
 	public void run() throws Exception {
 		// controle de off-set, isto �, a partir deste ID ser� lido as mensagens
 		// pendentes na fila
-		int m = 0;
+		int m = 1;
 
 		// loop infinito pode ser alterado por algum timer de intervalo curto
 		while (true) {
