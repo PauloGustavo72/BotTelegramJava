@@ -5,25 +5,35 @@ import java.util.List;
 
 public class CustomSearch {
 	
-	private List<CustomSearchItems> items = new ArrayList<>(); 
+	private List<CustomSearchItems> results = new ArrayList<>();
+
+	public List<CustomSearchItems> getResults() {
+		return results;
+	}
+
+	public void setResults(List<CustomSearchItems> results) {
+		this.results = results;
+	} 
 	
 	
 	@Override
 	public String toString() {
 		String s = "";
-		for (CustomSearchItems c : items) {
-			s+=c.getTitle()+": " + c.getLink()+"\n\n\n";
+		for (CustomSearchItems c : results) {
+			s += "Nome: " + c.getName() + "\n" + "Endereço: " + c.getVicinity() + "\n" + "Link: " + c.getHtml_attributions()
+			+ "\n\n\n";
 		}
+		
+		
+		
+//		for (CustomSearchItems c : results) {
+//			//s+=c.getTitle()+": " + c.getLink()+"\n\n\n";
+//			s+= "Nome: " + c.getName() + "\n" +"Endereço: " +  c.getVicinity() + "\n" + c.getHtml_attributions() + "\n\n\n";
+//		}
 		return s;
 	}
 	
 
-	public List<CustomSearchItems> getItems() {
-		return items;
-	}
-
-	public void setItems(List<CustomSearchItems> items) {
-		this.items = items;
-	}
+	
 
 }

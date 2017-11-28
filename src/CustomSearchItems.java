@@ -2,19 +2,31 @@
 
 public class CustomSearchItems {
 
-	private String title;
-	private String link;
-	public String getTitle() {
-		return title;
+	private String name;
+
+	private String vicinity;
+	private String html_attributions;
+	
+	
+	public String getName() {
+		return name;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getLink() {
-		return link;
+	public String getVicinity() {
+		return vicinity;
 	}
-	public void setLink(String link) {
-		this.link = link;
+	public void setVicinity(String vicinity) {
+		this.vicinity = vicinity;
 	}
+	public String getHtml_attributions() {
+		return html_attributions;
+	}
+	public void setHtml_attributions(String html_attributions) {
+		this.html_attributions = html_attributions;
+	}
+	
+	
 	
 }
