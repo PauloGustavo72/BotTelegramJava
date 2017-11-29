@@ -6,6 +6,8 @@ import java.util.List;
 public class CustomSearch {
 	
 	private List<CustomSearchItems> results = new ArrayList<>();
+	
+	
 
 	public List<CustomSearchItems> getResults() {
 		return results;
@@ -20,8 +22,10 @@ public class CustomSearch {
 	public String toString() {
 		String s = "";
 		for (CustomSearchItems c : results) {
-			s += "Nome: " + c.getName() + "\n" + "Endereço: " + c.getVicinity() + "\n" + "Link: " + c.getHtml_attributions()
-			+ "\n\n\n";
+			s += "Nome: " + c.getName() + "\n" + "Endereço: " + c.getVicinity() + "\n" + 
+			"\nEstado: " + c.getOpening_hours() + "\n\n";		
+			
+			
 		}
 		
 		

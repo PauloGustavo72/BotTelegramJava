@@ -20,10 +20,10 @@ public  class HttpURLConnectionExample {
 				String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
 						+ longitude +"," + latitude
 						+ "&radius=500&"
-						+ "keyword=" + q
-						+ "&key=AIzaSyCB07ev1nkhSWCdATGSDgCBN-hLmaWJUFc"; 
+						+ "keyword=" + q.replace(" " , "%20") 
+						+ "&open_now=true&key=AIzaSyCB07ev1nkhSWCdATGSDgCBN-hLmaWJUFc"; 
 				
-				//q.replace(" " , "%20") ;
+				
 				Gson gson = new Gson();
 
 				URL obj = new URL(url);
@@ -50,6 +50,9 @@ public  class HttpURLConnectionExample {
 				
 				
 				CustomSearch fromJson = gson.fromJson(response.toString(), CustomSearch.class);
+				
+				System.out.println(gson.toJson(fromJson));
+				
 				return fromJson;
 
 		

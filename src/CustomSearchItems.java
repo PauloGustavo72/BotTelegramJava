@@ -1,4 +1,4 @@
-
+import java.util.List;
 
 public class CustomSearchItems {
 
@@ -6,8 +6,22 @@ public class CustomSearchItems {
 
 	private String vicinity;
 	private String html_attributions;
+	private Estado opening_hours;
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	public Estado getOpening_hours() {
+		return opening_hours;
+	}
+	public void setOpening_hours(Estado opening_hours) {
+		this.opening_hours = opening_hours;
+	}
 	public String getName() {
 		return name;
 	}

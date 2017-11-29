@@ -79,7 +79,7 @@ public class Bot {
 				System.out.println("Chat ID: " + message.chat().id());
 				System.out.println("User ID: " + message.from().id());
 				
-				
+
 				if(message.text() == null) {
 					locais.put(message.from().id(), message.location());
 					continue;
@@ -92,7 +92,8 @@ public class Bot {
 				String latitude = "" + locais.get(message.from().id()).latitude();
 				String longitude = "" + locais.get(message.from().id()).longitude();
 				
-						
+				
+				
 				System.out.println("Localização: " + "Latidude = " + latitude  + ", Longiture = " + longitude); 
 				System.out.println("Recebendo mensagem: " + message.text());
 
@@ -118,6 +119,9 @@ public class Bot {
 						System.out.println("Mensagem enviada!");
 					
 				}
+			
+				
+
 			}
 
 		}
